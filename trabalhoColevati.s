@@ -125,56 +125,42 @@ caso12:
 	li $s4,100
 	rem $s5,$t4,$s4
 	bne $s5,$zero,caso13
-	j mesNiverDiferente2
+	j mesNiverIgual2
 	
 caso13:
 	li $s6,4
 	rem $s7,$t4,$s6
 	beq $s7,$zero,somaBissextoAtual
-	j mesNiverDiferente2
+	j mesNiverIgual2
 	
 somaBissextoAtual:
 	li $t8,1
 	add $t8,$t8,$zero
-	j mesNiverDiferente2
-	
-							mesNiverDiferente2:
-								li $s1,02
-								bne $t1,$s1,mesAtualDiferente2
-								j mesNiver2
+	j mesNiverIgual2
 
-							mesAtualDiferente2:
-								li $s1,02
-								bne $t4,$s1,iniciar
-								j mesNiver2
-	
-								mesNiverDiferente2:
-									li $s1,02
-									bne $t1,$s1,mesAtualDiferente2
-									j mesNiver2
 
-								mesAtualDiferente2:
-									li $s1,02
-									bne $t4,$s1,in
+			#verificaçao de casos
+			mesNiverIgual2:
+				li $s1,02
+				beq $t1,$s1,mesAtualIgual2
+				j mesNiver2
 
-								mesNiverDiferente2:
-									li $s1,02
-									bne $t1,$s1,mesAtualDiferente2
-									j mesNiver2
+			mesAtualIgual2:
+				li $s1,02
+				beq $t4,$s1,iniciar
+				j mesNiver2
 
-								mesAtualDiferente2:
-									li $s1,02
-									bne $t4,$s1,in
 
-								mesNiverDiferente2:
-									li $s1,02
-									bne $t1,$s1,mesAtualDiferente2
-									j mesNiver2
+			mesNiverDiferente2:
+				li $s1,02
+				bne $t1,$s1,mesAtualDiferente2
+				j mesNiver2
 
-								mesAtualDiferente2:
-									li $s1,02
-									bne $t4,$s1,in
-	
+			mesAtualDiferente2:
+				li $s1,02
+				bne $t4,$s1,iniciar
+				j mesNiver2
+
 #mesNiver igual a 2 e mes atual diferente 2
 mesNiver2:
 	beq $t1,$s1,mesAtual2
