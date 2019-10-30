@@ -139,35 +139,43 @@ somaBissextoAtual:
 	j mesNiverIgual2
 
 
-			#verificaçao de casos
-			mesNiverIgual2:
-				li $s1,02
-				beq $t1,$s1,mesAtualIgual2
-				j mesNiver2
-
-			mesAtualIgual2:
-				li $s1,02
-				beq $t4,$s1,iniciar
-				j mesNiver2
-
-
-			mesNiverDiferente2:
-				li $s1,02
-				bne $t1,$s1,mesAtualDiferente2
-				j mesNiver2
-
-			mesAtualDiferente2:
-				li $s1,02
-				bne $t4,$s1,iniciar
-				j mesNiver2
-
-#mesNiver igual a 2 e mes atual diferente 2
-mesNiver2:
-	beq $t1,$s1,mesAtual2
-	j segundaValidacao
+#verificaçao de casos
+mesNiverIgual2:
+	li $s1,02
+	beq $t1,$s1,mesAtualIgualVindoDoNiverIgual2
+	j mesNiverDiferente2
 	
-mesAtual2:
-	beq $t4,$s1,atualNiverFev
+mesAtualIgualVindoDoNiverIgual2:
+	li $s1,02
+	beq $t4,$s1,mesIgualIgual
+	j mesAtualDifrenteVindoDoNiverIgual2
+
+mesAtualDifrenteVindoDoNiverIgual2:
+	li $s1,02
+	beq $t4,$s1,mesIgualDiferente
+						
+mesNiverDiferente2:
+	li $s1,02
+	bne $t1,$s1,mesAtualIgualVindoNiverDiferente2
+
+mesAtualIgualVindoNiverDiferente2:
+	li $s1,02
+	beq $t4,$s1,mesDiferenteIgual
+	j mesAtualDiferenteVindoNiverDiferente2
+
+mesAtualDiferenteVindoNiverDiferente2
+	li $s1,02
+	bne $t4,$s1,mesDiferenteDiferente
+	
+#Condicionais para fevereiro
+mesIgualIgual:
+	beq
+	
+mesIgualDiferente:
+	
+mesDiferenteIgual:
+
+mesDiferenteDiferente
 	
 	
 	
